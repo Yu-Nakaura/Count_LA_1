@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.util.Log
 import app.nakaura.chloe.countla1.databinding.ActivityMainBinding
 
+//reviewed by toppo 🧸: カウントの機能完璧です！TextFieldも使えていて、サウンドや文字色変更もいい感じ！
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mSoundPool: SoundPool
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //🧸: viewBindingが使えていていいね！
         binding = ActivityMainBinding.inflate(layoutInflater).apply { setContentView(this.root) }
 
         //お題５
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     //お題５
     override fun onStop() {
         super.onStop()
+        //🧸: 数字の保存も完璧！
         sharedPref = getSharedPreferences("SharedPref", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         val countNumber: String = number.toString()
@@ -64,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
     }
 
+    //🧸: メソッド分けていてGood！
     //お題２
     fun changeColor() {
         when (number % 2) {
@@ -72,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //🧸: メソッド分けていてGood！
     //お題４
     fun changeSound() {
         if (number % 2 == 1) {
